@@ -1,7 +1,6 @@
-export LOL = "$HOME/.dotfiles"
-export PATH = "$BASH/bin:$PATH:.:/opt/local/bin:/opt/local/sbin:/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin"
+export PATH="$HOME/.dotfiles/bin:/bin:$PATH:/opt/local/bin:/opt/local/sbin:/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin"
 
-export EDITOR = "vim"
+export EDITOR="vim"
 
 alias ls="gls -F --color"
 alias l="gls -lAh --color"
@@ -10,7 +9,7 @@ alias la='gls -A --color'
 
 source `brew --prefix`/etc/grc.bashrc
 
-alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export CLICOLOR=1
