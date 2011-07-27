@@ -33,3 +33,5 @@ task :install do
   end
 end
 task :default => 'install'
+
+puts "GO WILD"
