@@ -1,4 +1,4 @@
-export BASH = "$HOME/.dotfiles"
+export LOL = "$HOME/.dotfiles"
 export PATH = "$BASH/bin:$PATH:.:/opt/local/bin:/opt/local/sbin:/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin"
 
 export EDITOR = "vim"
