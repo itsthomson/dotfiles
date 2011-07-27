@@ -1,0 +1,61 @@
+set nocompatible
+set noswapfile
+
+set history =700        " setting history length to 700
+syntax enable           " syntax highlighting
+filetype plugin indent on			" type file detection
+
+set autoread 						" detect changes in outside apps
+set ruler						    " show cursor position
+set number						    " line numbers
+
+set ignorecase					    " case insensitive searching...
+set smartcase					      " ...unless query is capitalized
+set hlsearch					      " highlight matches...
+set incsearch					      " ...as i type
+set magic						        " pattern match with special characters
+set showmatch					      " show matching braces/paren
+
+set showcmd    	     	      " display incomplete commands.
+set showmode					      " display the mode you're in.
+
+set gfn=Menlo:h18			      " gVim font
+set shell=/bin/bash		    	" for running things
+
+set backspace=indent,eol,start  " Intuitive backspacing.
+
+set hidden                  " Handle multiple buffers better.
+
+set wildmenu                " Enhanced command line completion.
+set wildmode=list:longest   " Complete files like a shell.
+
+set wrap                    " Turn on line wrapping.
+set scrolloff=3             " Show 3 lines of context around the cursor.
+
+set title                   " Set the terminal's title
+
+set visualbell              " No beeping.
+
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+
+set expandtab					      " spaces instead of tabs
+set shiftwidth=2				    " shift width
+set tabstop=2					      " tab width
+set smarttab
+
+set laststatus=2                  " Show the status line all the time
+
+" sexy status line
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set lbr							" smart word breaking
+set tw=80						" line width
+
+set ai							" autoindent
+set si							" smart indenting
+set wrap						" word wrap
+
+let vimrplugin_screenvsplit = 1
+let g:ScreenImpl = 'Tmux'
