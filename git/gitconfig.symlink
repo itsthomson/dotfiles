@@ -1,0 +1,26 @@
+[user]
+	name = Thomson Nguyen
+	email = thomson@cantab.net
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  type = cat-file -t
+  dump = cat-file -p
+  promote = git-promote
+  wtf  = git-wtf
+  count = shortlog -sn
+
+[github]
+  user = itsthomson
+
+[core]
+  editor = vim
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
