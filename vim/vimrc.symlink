@@ -58,4 +58,4 @@ set si							" smart indenting
 set wrap						" word wrap
 
 let vimrplugin_screenvsplit = 1
-let g:ScreenImpl = 'Tmux'
+let g:ScreenImpl = 'Screen'
