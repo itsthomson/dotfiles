@@ -14,3 +14,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Add common Yipit functions and settings
+export YIPIT_PATH=~/Desktop/yipit-env/yipit
+source ${YIPIT_PATH}/conf/yipit_bash_profile

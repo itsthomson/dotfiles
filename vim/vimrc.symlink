@@ -56,6 +56,7 @@ set tw=80						" line width
 set ai							" autoindent
 set si							" smart indenting
 set wrap						" word wrap
+colorscheme tomorrownight
 
 let vimrplugin_screenvsplit = 1
 let g:ScreenImpl = 'Screen'
