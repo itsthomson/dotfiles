@@ -1,0 +1,22 @@
+set append_log on
+set auto_away off
+set beep on
+set beep_max 3
+set user_information http://www.ocf.berkeley.edu/~thomson/
+
+fset action_channel [$Z]%B<%n$1 $4-%B>%n
+fset dcc_chat [$Z]%g[%G$1%g->]%n $3-
+fset send_dcc_chat [$Z]%g[%G$1%g<-]%n $2-
+fset msg [$Z]%y[%Y$1%y->]%n $3-
+fset notice [$Z]%p[%P$1%p->]%n $3-
+fset send_msg [$Z]%c[%C$1%c<-]%n $3-
+fset send_notice [$Z]%r[%R$1%r<-]%n $3-
+fset send_public [$Z]%P<%n$2%P>%n $3-
+fset nick_comp $0:$1-
+fset nick_auto $0:$1-
+fset public [$Z]%B<%n$1%B>%n $3-
+fset nick_comp $0:$1-
+fset nick_auto $0:$1-
+
+export IRCNICK=thomson
+export IRCSERVER=irc.ocf.berkeley.edu
