@@ -58,5 +58,7 @@ set si							" smart indenting
 set wrap						" word wrap
 colorscheme tomorrownight
 
-let vimrplugin_screenvsplit = 1
-let g:ScreenImpl = 'Screen'
+let vimrplugin_screenplugin = 1 
+
+" PATHOGEN
+call pathogen#infect()
