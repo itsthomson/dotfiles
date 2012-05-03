@@ -2,10 +2,10 @@ export PATH="$HOME/opt/bin:$HOME/.dotfiles/bin:/bin:$PATH:/opt/local/bin:/opt/lo
 
 export EDITOR="vim"
 
-alias ls="gls -F --color"
-alias l="gls -lAh --color"
-alias ll="gls -l --color"
-alias la='gls -A --color'
+alias ls="ls -G"
+alias l="ls -lAh"
+alias ll="ls -l"
+alias la='ls -A'
 
 # source `brew --prefix`/etc/grc.bashrc
 

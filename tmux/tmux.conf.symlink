@@ -27,7 +27,4 @@ bind w list-windows
 bind Tab select-pane -t:.+
 bind '~' split-window "exec htop"
 
-set-option -g status-left 'lolololol'
-
-#set-option -g status-left '[Battery: #(/Users/tnguyen/.dotfiles/bin/battery.sh)] #[default] Windows:'
-}
+set-option -g status-left '[Battery: #(/Users/tnguyen/.dotfiles/bin/battery.sh)] #[default] Windows:'
