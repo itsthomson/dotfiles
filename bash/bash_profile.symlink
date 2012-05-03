@@ -55,7 +55,3 @@ function prompt_command {
   
 }
 PROMPT_COMMAND=prompt_command
-
-# Add common Yipit functions and settings
-export YIPIT_PATH=~/Desktop/yipit-env/yipit
-source ${YIPIT_PATH}/conf/yipit_bash_profile
