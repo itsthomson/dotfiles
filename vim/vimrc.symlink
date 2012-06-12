@@ -47,18 +47,15 @@ set smarttab
 
 set laststatus=2                  " Show the status line all the time
 
-" sexy status line
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
 set lbr							" smart word breaking
 set tw=80						" line width
 
 set ai							" autoindent
 set si							" smart indenting
 set wrap						" word wrap
-colorscheme tomorrownight
+" colorscheme tomorrownight
 
-let vimrplugin_screenplugin = 1 
+let vimrplugin_screenplugin = 1
 
 " PATHOGEN
 call pathogen#infect()
