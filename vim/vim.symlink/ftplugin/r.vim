@@ -19,7 +19,7 @@
 "          
 "          Based on previous work by Johannes Ranke
 "
-" Last Change: Tue Feb 08, 2011  09:31AM
+" Last Change: Fri Feb 17, 2012  08:38AM
 "
 " Please see doc/r-plugin.txt for usage details.
 "==========================================================================
@@ -32,8 +32,14 @@ endif
 " Don't load another plugin for this buffer
 let b:did_r_ftplugin = 1
 
-setlocal commentstring=#%s
-setlocal comments=b:#,b:##,b:###
+let s:cpo_save = &cpo
+set cpo&vim
+
+" Don't do this if called by ../r-plugin/global_r_plugin.vim
+if &filetype == "r"
+    setlocal commentstring=#%s
+    setlocal comments=b:#,b:##,b:###
+endif
 
 " Source scripts common to R, Rnoweb, Rhelp and rdoc files:
 runtime r-plugin/common_global.vim
@@ -41,7 +47,7 @@ if exists("g:rplugin_failed")
     finish
 endif
 
-" Some buffer variables common to R, Rnoweb, Rhelp and rdoc file need be
+" Some buffer variables common to R, Rnoweb, Rhelp and rdoc files need be
 " defined after the global ones:
 runtime r-plugin/common_buffer.vim
 
@@ -56,10 +62,10 @@ function! ShowRout()
 
     " if not silent, the user will have to type <Enter>
     silent update
-    if has("gui_win32")
+    if has("win32") | has("win64")
         let rcmd = 'Rcmd.exe BATCH --no-restore --no-save "' . expand("%") . '" "' . routfile . '"'
     else
-        let rcmd = g:rplugin_R . " CMD BATCH --no-restore --no-save '" . expand("%") . "' '" . routfile . "'"
+        let rcmd = b:rplugin_R . " CMD BATCH --no-restore --no-save '" . expand("%") . "' '" . routfile . "'"
     endif
     echo "Please wait for: " . rcmd
     let rlog = system(rcmd)
@@ -99,11 +105,16 @@ call RCreateMaps("nvi", '<Plug>RSetwd',        'rd', ':call RSetWD()')
 "-------------------------------------
 if &filetype == "rnoweb"
     call RCreateMaps("nvi", '<Plug>RSweave',      'sw', ':call RSweave()')
-    call RCreateMaps("nvi", '<Plug>RMakePDF',     'sp', ':call RMakePDF()')
+    call RCreateMaps("nvi", '<Plug>RMakePDF',     'sp', ':call RMakePDF("nobib")')
     call RCreateMaps("nvi", '<Plug>RIndent',      'si', ':call RnwToggleIndentSty()')
 endif
 
 
 " Menu R
-call MakeRMenu()
+if has("gui_running")
+    call MakeRMenu()
+endif
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
 

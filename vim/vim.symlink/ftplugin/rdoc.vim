@@ -19,7 +19,7 @@
 "          
 "          Based on previous work by Johannes Ranke
 "
-" Last Change: Sat Feb 05, 2011  08:08AM
+" Last Change: Fri Nov 25, 2011  08:52PM
 "
 " Please see doc/r-plugin.txt for usage details.
 "==========================================================================
@@ -32,6 +32,9 @@ endif
 " Don't load another plugin for this buffer
 let b:did_rdoc_ftplugin = 1
 
+let s:cpo_save = &cpo
+set cpo&vim
+
 " Source scripts common to R, Rnoweb, Rhelp and rdoc files:
 runtime r-plugin/common_global.vim
 
@@ -39,6 +42,26 @@ runtime r-plugin/common_global.vim
 " defined after the global ones:
 runtime r-plugin/common_buffer.vim
 
+" Prepare R documentation output to be displayed by Vim
+function! FixRdoc()
+    let lnr = line("$")
+    for i in range(1, lnr)
+        call setline(i, substitute(getline(i), "_\010", "", "g"))
+    endfor
+    let has_ex = search("^Examples:$")
+    if has_ex
+        let lnr = line("$") + 1
+        call setline(lnr, '###')
+    endif
+    normal! gg
+
+    " Clear undo history
+    let old_undolevels = &undolevels
+    set undolevels=-1
+    exe "normal a \<BS>\<Esc>"
+    let &undolevels = old_undolevels
+    unlet old_undolevels
+endfunction
 
 "==========================================================================
 " Key bindings and menu items
@@ -47,10 +70,17 @@ call RCreateSendMaps()
 call RControlMaps()
 
 " Menu R
-call MakeRMenu()
+if has("gui_running")
+    call MakeRMenu()
+endif
 
 setlocal bufhidden=wipe
 setlocal noswapfile
 set buftype=nofile
 autocmd VimResized <buffer> let g:vimrplugin_newsize = 1
+call FixRdoc()
+autocmd FileType rdoc call FixRdoc()
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
 

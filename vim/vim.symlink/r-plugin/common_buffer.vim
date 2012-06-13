@@ -19,7 +19,7 @@
 "          
 "          Based on previous work by Johannes Ranke
 "
-" Last Change: Mon Feb 07, 2011  08:07PM
+" Last Change: Mon Feb 27, 2012  12:45PM
 "
 " Please see doc/r-plugin.txt for usage details.
 "==========================================================================
@@ -98,12 +98,19 @@ if g:vimrplugin_by_vim_instance == 1
   unlet s:sname
 endif
 
-let s:thisbuffname = substitute(bufname("%"), '\.', '', "g")
-let s:thisbuffname = substitute(s:thisbuffname, ' ', '', "g")
-exe "augroup " . s:thisbuffname
-  au FileType <buffer> call MakeRMenu()
-  au BufEnter <buffer> call RBufEnter()
-  au BufLeave <buffer> call UnMakeRMenu()
-exe "augroup END"
-unlet s:thisbuffname
+if g:rplugin_firstbuffer == ""
+    " The file global_r_plugin.vim was copied to ~/.vim/plugin
+    let g:rplugin_firstbuffer = expand("%:p")
+endif
+
+if g:vimrplugin_screenplugin
+    let s:uniquename = b:screensname . g:rplugin_firstbuffer
+else
+    let s:uniquename = b:screensname
+endif
+let s:uniquename = substitute(s:uniquename, '\W', '', 'g')
+let $VIMINSTANCEID = $VIMRPLUGIN_TMPDIR . "/" . s:uniquename . "-port"
+unlet s:uniquename
+
+let g:rplugin_lastft = &filetype
 
