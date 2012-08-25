@@ -21,13 +21,19 @@ set -g status-left-length 90
 set -g status-left '#[fg=green](#S) #(whoami)@#H#[default]'
 set -g status-right '#[fg=yellow]#(cut -d " " -f 1-3 /proc/loadavg)#[default] #[fg=blue]%H:%M#[default]'
 
+
+bind-key j resize-pane -D
+bind-key k resize-pane -U
+bind-key h resize-pane -L
+bind-key l resize-pane -R
+
 bind | split-window -h
 bind S split-window
-bind k kill-window
+bind K kill-window
 bind n next-window
 bind p previous-window
 bind w list-windows
 bind Tab select-pane -t:.+
 bind '~' split-window "exec htop"
 
-set-option -g status-left '[Battery: #(/Users/tnguyen/.dotfiles/bin/battery.sh)] #[default] Windows:'
+set-option -g status-left '[Battery: #(~/.dotfiles/bin/battery.sh)] #[default] Windows:'

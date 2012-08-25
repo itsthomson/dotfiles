@@ -56,5 +56,7 @@ set wrap						" word wrap
 
 let vimrplugin_screenplugin = 1
 
+let twitvim_count = 200
+
 " PATHOGEN
 call pathogen#infect()
