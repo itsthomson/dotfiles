@@ -22,11 +22,30 @@ set -g status-left-length 90
 # Watch background windows for activity
  setw -g monitor-activity on
 
+# automake panes
+bind-key e respawn-window
+
+set global r-o-e so that initial window of initial session gets it
+set -g set-remain-on-exit on
+
+# create a session and its windows/panes
+new -n estruct ls
+neww -n estruct2 ls
+splitw -v -p 50 -t 0 ls
+
+# restore global r-o-e
+set -g set-remain-on-exit off
+
+# let session r-o-e inherit from global value for future windows
+set -u set-remain-on-exit
+
+# resizing panes
 bind-key j resize-pane -D
 bind-key k resize-pane -U
 bind-key h resize-pane -L
 bind-key l resize-pane -R
 
+# the usual
 bind | split-window -h
 bind S split-window
 bind K kill-window
