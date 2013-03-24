@@ -19,7 +19,6 @@ set showmatch					      " show matching braces/paren
 set showcmd    	     	      " display incomplete commands.
 set showmode					      " display the mode you're in.
 
-set gfn=Menlo:h18			      " gVim font
 set shell=/bin/bash		    	" for running things
 
 set backspace=indent,eol,start  " Intuitive backspacing.
@@ -60,3 +59,7 @@ let twitvim_count = 200
 
 " PATHOGEN
 call pathogen#infect()
+
+if exists('+colorcolumn')
+    set cc=+0 " character color after 80 characters
+  endif
