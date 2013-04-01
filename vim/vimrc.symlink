@@ -61,5 +61,5 @@ let twitvim_count = 200
 call pathogen#infect()
 
 if exists('+colorcolumn')
-    set cc=+0 " character color after 80 characters
+    set cc=+1 " character color after 80 characters
   endif
