@@ -58,3 +58,6 @@ PROMPT_COMMAND=prompt_command
 
 # added by Anaconda 1.6.1 installer
 export PATH="//anaconda/bin:$PATH"
+
+# added by Anaconda 1.6.1 installer
+export PATH="//anaconda/bin:$PATH"
