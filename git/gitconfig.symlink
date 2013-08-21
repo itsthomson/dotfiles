@@ -1,7 +1,7 @@
 [user]
   gerrit = thomson
 	name = Thomson Nguyen
-	email = thomson@causes.com
+	email = thomson@cantab.net
 
 [alias]
   co = checkout
