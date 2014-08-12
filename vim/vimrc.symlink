@@ -40,8 +40,8 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set expandtab					      " spaces instead of tabs
-set shiftwidth=4				    " shift width
-set tabstop=4					      " tab width
+set shiftwidth=2				    " shift width
+set tabstop=2   				      " tab width
 set smarttab
 
 set laststatus=2                  " Show the status line all the time
@@ -62,4 +62,16 @@ call pathogen#infect()
 
 if exists('+colorcolumn')
     set cc=+1 " character color after 80 characters
-  endif
+endif
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+  
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+set background=dark
+let g:Powerline_symbols = 'unicode'
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
