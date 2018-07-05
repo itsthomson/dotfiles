@@ -55,5 +55,4 @@ bind w list-windows
 bind Tab select-pane -t:.+
 bind '~' split-window "exec htop"
 
-set-option -g status-left '[Battery: #(~/.dotfiles/bin/battery.sh)] #[default] Windows:'
 set -g status-right '#[fg=yellow]#(w | head -n1 | cut -d":" -f4)#[default] | #[fg=blue]%d %b %Y | %H:%M#[default]'
